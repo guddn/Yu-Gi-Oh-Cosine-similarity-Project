@@ -19,9 +19,9 @@ def load_card_data(card_name = "하루 우라라"):
 
         # 4. 응답 결과를 JSON 객체(파이썬 딕셔너리)로 저장
         card_data_object = response.json()
-        
-        print("--- JSON (Dict) 객체 ---")
-        print(card_data_object)
+
+        # 5. 응답 결과를 문자열(String) 객체로 저장
+        card_data_string = response.text
         
     except requests.exceptions.HTTPError as err:
         print(f"HTTP 오류 발생: {err}")
@@ -30,5 +30,5 @@ def load_card_data(card_name = "하루 우라라"):
     except json.JSONDecodeError:
         print("JSON 디코딩 오류")
     
-    return card_data_object
+    return card_data_object, card_data_string
 
