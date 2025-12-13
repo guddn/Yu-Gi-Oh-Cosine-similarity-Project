@@ -14,11 +14,11 @@ def load_card_data(card_name = "하루 우라라"):
     try:
         response = requests.get(full_url)
         
-        # HTTP 상태 코드 확인 (200 OK인지)
+        # HTTP 상태 코드 확인
         response.raise_for_status() 
 
         # 4. 응답 결과를 JSON 객체(파이썬 딕셔너리)로 저장
-        card_data_object = response.json()
+        card_data_json = response.json()
 
         # 5. 응답 결과를 문자열(String) 객체로 저장
         card_data_string = response.text
@@ -30,5 +30,5 @@ def load_card_data(card_name = "하루 우라라"):
     except json.JSONDecodeError:
         print("JSON 디코딩 오류")
     
-    return card_data_object, card_data_string
+    return card_data_json, card_data_string
 
