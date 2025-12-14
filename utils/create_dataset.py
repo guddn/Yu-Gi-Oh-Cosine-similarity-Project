@@ -1,4 +1,4 @@
-from load_api import load_card_data
+from utils.load_api import load_card_data
 
 def create_card_data(card_names):
     card_datas_json = {}

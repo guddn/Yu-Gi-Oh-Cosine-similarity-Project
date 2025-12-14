@@ -1,4 +1,4 @@
-from create_dataset import create_card_data
+from utils.create_dataset import create_card_data
 
 from sentence_transformers import SentenceTransformer
 from sklearn.decomposition import PCA
@@ -33,6 +33,6 @@ plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] = False
 plt.scatter(coords[:,0], coords[:,1])
 for i, text in enumerate(card_names):
-    plt.annotate(text, (coords[i,0], coords[i,1]))
+    plt.annotate(text, xy=(coords[i,0], coords[i,1]), fontsize=5)
 
 plt.show()

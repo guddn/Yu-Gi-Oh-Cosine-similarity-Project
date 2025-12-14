@@ -1,4 +1,4 @@
-from create_dataset import create_card_data
+from utils.create_dataset import create_card_data
 
 from sentence_transformers import SentenceTransformer
 from sklearn.decomposition import PCA
