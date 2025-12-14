@@ -1,0 +1,5 @@
+# ignore data files 
+Yu-Gi-Oh_cards_dataset_Jul2024/
+
+# ignore python cache files
+__pycache__/
