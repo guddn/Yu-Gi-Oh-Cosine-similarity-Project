@@ -3,11 +3,10 @@ from create_dataset import create_card_data
 from sentence_transformers import SentenceTransformer
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-import torch
-import torch.nn as nn
 
 '''
-feature와 text를 각각 임베딩하여 concat
+카드명, 속성 등을 full text로 담은 후 임베딩 
+3D 차원으로 PCA
 card_names 기준: 
 사용 모델: all-MiniLM-L6-v2
 '''
@@ -21,28 +20,24 @@ card_names = ["하루 우라라", "유령토끼", "부유벚꽃", "저택 와라
               "액세스코드 토커", 
               "블랙 매지션", "푸른 눈의 백룡", "붉은 눈의 흑룡", "데몬 소환"]
 
-# 데이터 불러오기
-card_data_json, card_data_string = create_card_data(card_names)
-
 # 모델 설정
 model = SentenceTransformer('all-MiniLM-L6-v2')
-
-for card_name in card_names:
-    Embedding_cardAttr = card_data_json[card_name]["cardAttr"]
-
-
-
-embeds = model.encode(card_data_string)
+card_data_json, card_data = create_card_data(card_names)
+embeds = model.encode(card_data)
 
 # PCA
-pca = PCA(n_components=2)
+pca = PCA(n_components=3)
 coords = pca.fit_transform(embeds)
 
 # 시각화
 plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] = False
-plt.scatter(coords[:,0], coords[:,1])
-for i, text in enumerate(card_names):
-    plt.annotate(text, (coords[i,0], coords[i,1]))
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
 
+ax.scatter(coords[:,0], coords[:,1], coords[:,2])
+for i, text in enumerate(card_names):
+    ax.text(coords[i,0], coords[i,1], coords[i,2], text)
+
+ax.legend()
 plt.show()
