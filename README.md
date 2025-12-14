@@ -13,4 +13,11 @@
     - 모든 respone을 첨부하여 embedding
     - 목적에 부합하지 않는 결과가 나옴
 ![experiment_result_20251214](./experiment_result/experiment_result_20251214.png)
-- 2025/12/14 
+- 2025/12/14 12:00
+    - feature+text 임베딩 확인하기로 결정
+    - 3D 산점도 파일 추가
+        - 솔직히 보기 좀 힘든듯
+![experiment_result_20251214_2](./experiment_result/experiment_result_20251214_2.png)
+
+
+    
