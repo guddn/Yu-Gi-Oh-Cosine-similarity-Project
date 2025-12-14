@@ -5,7 +5,6 @@ def create_card_data(card_names):
 
     for card_name in card_names:
         card_data_json, card_data_string = load_card_data(card_name)
-        print(card_data_string, '\n')
         card_data.append(card_data_string)
 
     return card_data_json, card_data

@@ -5,7 +5,7 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
 '''
-카드명, 속성 등을 full text로 담은 후 임베딩 
+feature와 text를 각각 임베딩하여 concat
 card_names 기준: 
 사용 모델: all-MiniLM-L6-v2
 '''
