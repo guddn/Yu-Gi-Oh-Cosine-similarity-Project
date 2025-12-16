@@ -9,8 +9,6 @@ def load_card_data(card_name = "하루 우라라"):
     # 2. URL 경로 구성 
     encoded_card_name = urllib.parse.quote(card_name)
     full_url = BASE_URL + encoded_card_name
-    print("card_name: ", card_name)
-    print("encoded_card_name: ", encoded_card_name, "\n")
 
     # 3. GET 요청 실행
     try:
